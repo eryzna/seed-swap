@@ -8,18 +8,15 @@ User:
 Has a name, password, zipcode.  Possibly an email down the road. 
 
 Seeds: 
-Have a name, quantity, category.
+Have a name and category.
 Have many swaps. Have many users through swaps.
 Belongs to category???
 
 Swap: 
-Has a title. 
+Has a title and quantity.
 Belongs to user and to seed.
 Join table
 
-Category?? seed_category?
-Have many seeds. 
-Have many swaps through seeds. 
-Have many users through seeds
-Join table?
+Categories
+Vegetable, fruit, herbs, flowers
 
