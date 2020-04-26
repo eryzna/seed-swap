@@ -7,16 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user_list = [
-    ["Andy Fierro", 90057, "password"],
-    ["Emily Ryznar", 90403, "password"],
-    ["Eve Ryznar", 48167, "password"],
-    ["James Evans", 90403, "password"],
-    ["Hayden Byerly", 60703, "password"]
+    ["Andy", "Fierro", "afierro", 90057, "password"],
+    ["Emily", "Ryznar", "emryz", 90403, "password"],
+    ["Eve", "Ryznar", "eryzna", 48167, "password"],
+    ["James", "Evans", "jevans", 90403, "password"],
+    ["Gustav", "Mousehunter", "gurustav", 60703, "password"]
 
 ]
 
-user_list.each do |name, zip_code, password|
-    User.create(name: name, zip_code: zip_code, password: password)
+user_list.each do |first_name, last_name, username, zip_code, password|
+    User.create(first_name: first_name, last_name: last_name, username: username, zip_code: zip_code, password: password)
 end
 
 seed_list = [
