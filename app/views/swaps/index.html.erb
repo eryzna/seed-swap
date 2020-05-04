@@ -1,3 +1,7 @@
 
 <h1>Showing Swaps in <%=current_user.location%> </h1>
 <p> Need to update your zip code? <p>
+
+<% @swaps.each do |t|%>
+<p><%=t.title%></p
+<%end%>
