@@ -34,6 +34,18 @@ seed_list.each do |name, category|
     Seed.create(name: name, category: category)
 end
 
+swap_list = [
+    ["Tomatoes!!", ]
+
+
+
+]
+
+swap_list.each do |title, user_id, seed_id|
+    Swap.create(title: title, user_id: user_id, seed_id: seed_id)
+end
+
+
 
 
   

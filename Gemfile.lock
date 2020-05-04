@@ -230,6 +230,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.3.0)
+    zip-codes (0.2.1)
 
 PLATFORMS
   java
@@ -258,6 +259,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  zip-codes
 
 RUBY VERSION
    ruby 2.6.1p33
