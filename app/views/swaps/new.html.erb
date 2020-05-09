@@ -5,7 +5,8 @@
 <br>
 <br>
 
-<%= f.collection_select :seed, Seed.all, :id, :name %>
+<%= f.collection_select :seed_id, Seed.all, :id, :name %>
+<%= f.hidden_field :user_id%>
 
 <%=f.submit "Submit"%>
 

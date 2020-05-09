@@ -10,7 +10,7 @@ class SwapsController < ApplicationController
 
     def create
         @swap=Swap.new(swap_params)
-        binding.pry
+        @swap.user_id = current_user.id
         if @swap.save
             redirect_to swap_path(@swap)
         else
@@ -23,7 +23,8 @@ class SwapsController < ApplicationController
     def swap_params
         params.require(:swap).permit(
           :title, 
-          :seed_id
+          :seed_id, 
+          :user_id
         )
     end
 
