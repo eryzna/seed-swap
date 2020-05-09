@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_230818) do
+ActiveRecord::Schema.define(version: 2020_04_24_054641) do
 
   create_table "seeds", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.integer "quantity"
   end
 
   create_table "swaps", force: :cascade do |t|
     t.string "title"
-    t.integer "quantity"
     t.integer "user_id"
     t.integer "seed_id"
   end

@@ -20,3 +20,10 @@ Join table
 Categories
 Vegetable, fruit, herbs, flowers
 
+**NEED**
+Method that filters swaps by zip code
+Function that filters swaps by seed category
+Collection_select for seeds, or else create one new seed
+Edit user with new zip code
+Method that amends user's seed quantity after each swap; swaps have a seed name?
+
