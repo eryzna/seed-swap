@@ -1,0 +1,12 @@
+<%= form_for @swap do |f|%>
+    
+<%=f.label :title%>
+<%=f.text_field :title%>
+<br>
+<br>
+
+<%= f.collection_select :seed, Seed.all, :id, :name %>
+
+<%=f.submit "Submit"%>
+
+<%end%>

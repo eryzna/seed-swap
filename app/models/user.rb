@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
         @state=location[:state_name]
         @city=location[:city]
         "#{@city}, #{@state}"
-        
-    # => {:state_code=>"GA", :state_name=>"Georgia", :city=>"Atlanta", :time_zone=>"America/New_York"}
+     # => {:state_code=>"GA", :state_name=>"Georgia", :city=>"Atlanta", :time_zone=>"America/New_York"}
     #  First run will take a while, as the yaml has to be loaded
     end
 
