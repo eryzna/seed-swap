@@ -1,10 +1,6 @@
 <h1> Swap Dashboard </h1>
 <p> Need to update your zip code? </p>
-<% if current_user.zip_code == @swap.zip_code%>
-    <h1>Showing Swaps in <%=current_user.location%> </h1>
+<h1>Showing Swaps in <%=current_user.location%> </h1>
     <% @swaps.each do |t|%>
         <p><%=t.title%></p>
     <%end%>
-<%else%>
-    <h2> Nos </h2>
-<%end%>

@@ -17,8 +17,25 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def neighbor
-    User.where(zip_code: "#{current_user.zip_code}")
+  def neighbors
+    if current_user
+       User.where(zip_code: "#{current_user.zip_code}")
+    else
+      redirect_to '/'
+    end
+      
     #where(zip_code: '#{current_user.zip_code}').load
   end
 end
+
+def neighbor_swaps
+  neighbors.map {|user| user.swaps}
+end
+
+#@neighbors.each do |t|
+  #if t != current_user
+  #    @neighbor=t
+  #else
+  #    @neighbor != t
+  #end
+#end

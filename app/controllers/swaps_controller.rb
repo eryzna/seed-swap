@@ -2,14 +2,7 @@ class SwapsController < ApplicationController
 
     def index
         @swaps = Swap.all
-        @neighbor = neighbor
-        @neighbor.each do |t|
-            if t != current_user
-                @neighbor_object=t
-            else
-                @neighbor_object != t
-            end
-        end
+        @neighbor_swaps = neighbor_swaps
         binding.pry
     end
     
