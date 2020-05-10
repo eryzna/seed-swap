@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create', as: 'session'
   delete '/session/', to: 'session#destroy'
   #get '/seeds/new', to: 'attractions#new', as: 'new_attraction'
- # get '/attractions/:id', to: 'attractions#show', as: 'attraction'
+  get '/swaps/:id', to: 'swaps#show', as: 'swap'
  # get '/attractions/:id/edit', to: 'attractions#edit', as: 'edit_attraction'
  # patch '/attractions/:id', to: 'attractions#update'
  # post '/attractions', to: 'attractions#create'

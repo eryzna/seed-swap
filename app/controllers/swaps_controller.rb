@@ -3,7 +3,6 @@ class SwapsController < ApplicationController
     def index
         @swaps = Swap.all
         @neighbor_swaps = neighbor_swaps
-        binding.pry
     end
     
     def new
@@ -18,6 +17,10 @@ class SwapsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
+        @swap = Swap.find_by(id: params[:id])
     end
 
     private

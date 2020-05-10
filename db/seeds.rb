@@ -66,7 +66,21 @@ swap_list = [
     ["Grapefruit", 4, 7],
     ["Arugula anyone?", 3, 2],
     ["Arugula anyone?", 2, 2],
-    ["Cilantro!", 1, 6]
+    ["Cilantro!", 1, 6],
+    ["Arugula anyone?", 8, 2],
+    ["Arugula anyone?", 9, 2],
+    ["Cilantro!", 10, 6],
+    ["Tomatoes!!", 11, 1],
+    ["Arugula anyone?", 12, 2],
+    ["Chives to swap!", 13, 3],
+    ["Basil Seeds Available", 14, 4],
+    ["Beautiful Poppy Seeds!", 8, 5],
+    ["Cilantrooo", 9, 6],
+    ["Grapefruit", 10, 7],
+    ["Arugula anyone?", 11, 2],
+    ["Arugula anyone?", 12, 2],
+    ["Cilantro!", 13, 6],
+    ["Grapefruit", 10, 7]
 ]
 
 swap_list.each do |title, user_id, seed_id|

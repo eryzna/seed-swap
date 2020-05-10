@@ -1,6 +1,12 @@
-<h1> Swap Dashboard </h1>
-<p> Need to update your zip code? </p>
 <h1>Showing Swaps in <%=current_user.location%> </h1>
-    <% @swaps.each do |t|%>
-        <p><%=t.title%></p>
+<p> Need to update your zip code? </p>
+<br>
+    <% @neighbor_swaps.each do |t|%>
+        <% t.each do |p|%>
+        <br>
+         <li><%=p.title%></li>
+         <p><%=p.user.first_name%> <%=p.user.last_name%></p>
+         <td><%= link_to "View Swap", swap_path(p.id) %></td>
+         <br>
+        <%end%>
     <%end%>
