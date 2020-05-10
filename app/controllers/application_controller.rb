@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find_by(id: session[:user_id])
   end
+
+  def neighbor
+    User.where(zip_code: "#{current_user.zip_code}")
+    #where(zip_code: '#{current_user.zip_code}').load
+  end
 end

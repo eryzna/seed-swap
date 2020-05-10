@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Seed.destroy_all
+Swap.destroy_all
 
 user_list = [
     ["Andy", "Fierro", "afierro", 90057, "password"],
@@ -13,7 +16,14 @@ user_list = [
     ["James", "Evans", "jevans", 90403, "password"],
     ["Gustav", "Mousehunter", "gurustav", 60703, "password"],
     ["Brian", "Lim", "blim", 90004, "password"],
-    ["Princess", "Dog", "princess", 90057, "password"]
+    ["Princess", "Dog", "princess", 90057, "password"],
+    ["Fred", "Fierro", "afierro", 90057, "password"],
+    ["Madeline", "Zacha", "emryz", 90403, "password"],
+    ["Paul", "Ryznar", "eryzna", 48167, "password"],
+    ["Joanne", "Reilly", "jevans", 90403, "password"],
+    ["Lily", "Mousehunter", "gurustav", 60703, "password"],
+    ["Sharon", "Tran", "blim", 90004, "password"],
+    ["Toffee", "Cat", "princess", 90057, "password"]
 
 ]
 
