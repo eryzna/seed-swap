@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
     #  First run will take a while, as the yaml has to be loaded
     end
 
+    def initial
+        @user=User.find_by_id(self)
+        #user[0,1]
+      end
+      
+
+    
+
 end

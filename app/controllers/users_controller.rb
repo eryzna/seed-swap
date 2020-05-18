@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     def show
         @user = current_user
     end
+
+    def edit
+      @user = User.find_by(id: params[:id])
+    end
+
+    def update
+      @user = User.find_by(id: params[:id])
+      @user.update(user_params)
+      redirect_to '/swaps'
+    end
     
     private
     

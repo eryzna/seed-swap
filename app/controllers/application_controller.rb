@@ -32,6 +32,15 @@ def neighbor_swaps
   neighbors.map {|user| user.swaps}
 end
 
+def initial
+  @user=User.find_by_id(user)
+  #user[0,1]
+end
+
+
+
+
+
 #@neighbors.each do |t|
   #if t != current_user
   #    @neighbor=t

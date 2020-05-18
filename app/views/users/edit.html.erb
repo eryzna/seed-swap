@@ -1,1 +1,5 @@
-<h1> EDIT USER FORM </h1>
+<h1> Update Your Zip Code </h1>
+<%= form_for @user do |t|%>
+    <%= t.text_field :zip_code%>
+    <%= t.submit "Update"%>
+<%end%>
