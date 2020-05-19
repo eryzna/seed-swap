@@ -3,16 +3,19 @@ class SwapsController < ApplicationController
     def index
         @neighbor_swaps = neighbor_swaps
         if params[:user_id]
-            @swaps = User.find(params[:user_id]).swaps
+            @user = User.find(params[:user_id])
+            @swaps = @user.swaps
+            binding.pry
         else
-            @swaps = Swap.all
+            @swaps = neighbor_swaps
         end
     end
 
     def show
-      @post = Post.find(params[:id])
+        @swap = Swap.find_by(id: params[:id])
     end
-    
+
+
     def new
         @swap=Swap.new
     end
@@ -27,10 +30,7 @@ class SwapsController < ApplicationController
         end
     end
 
-    def show
-        @swap = Swap.find_by(id: params[:id])
-    end
-
+   
     private
 
     def swap_params

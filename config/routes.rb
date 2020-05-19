@@ -8,10 +8,7 @@ Rails.application.routes.draw do
   
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   post '/users/:id', to: 'users#update', as: 'update_user'
-  resources :users, only: [:show] do
-    # nested resource for posts
-    resources :swaps, only: [:show, :index]
-  end
+ 
   
   get '/swaps', to: 'swaps#index', as: 'swaps'
   get '/signin', to: 'session#new', as: 'signin'
@@ -24,6 +21,11 @@ Rails.application.routes.draw do
   
  # post '/attractions', to: 'attractions#create'
  # post '/rides', to:"rides#create", as: 'rides'
+ 
+  resources :users, only: [:show] do
+  # nested resource for posts
+    resources :swaps, only: [:index,:show]
+  end
 
  resources :users
  resources :seeds
