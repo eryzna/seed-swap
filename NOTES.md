@@ -27,3 +27,18 @@ Collection_select for seeds, or else create one new seed
 Edit user with new zip code
 Method that amends user's seed quantity after each swap; swaps have a seed name?
 
+
+<% if @neighbor_swaps%>
+    <% @neighbor_swaps.each do |t|%>
+        <% t.each do |p|%>
+        <br>
+         <li><%=p.title%></li>
+         <h3> <%= link_to p.user.first_name, user_swaps_path(p.user) %></h3>
+         <p><%=p.user.first_name%> <%=p.user.last_name.first%>.</p>
+         <td><%= link_to "View Swap", swap_path(p.id) %></td>
+         <br>
+        <%end%>
+    <%end%>
+<% else%>
+    <h1> No Swaps to Show! </h1>
+<%end%>

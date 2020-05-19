@@ -1,13 +1,19 @@
 class SwapsController < ApplicationController
 
     def index
-        @neighbor_swaps = neighbor_swaps
-        if params[:user_id]
-            @user = User.find(params[:user_id])
-            @swaps = @user.swaps
-            binding.pry
+        @swaps = neighbor_swaps
+        #binding.pry
+        if neighbor_swaps
+           # neighbor_swaps.each do
+            if params[:user_id]
+                @user = User.find(params[:user_id])
+                @swaps = @user.swaps
+            else
+            #@swaps = Swap.all
+                @swaps = neighbor_swaps
+            end
         else
-            @swaps = neighbor_swaps
+            print "No Swaps to Show!"
         end
     end
 

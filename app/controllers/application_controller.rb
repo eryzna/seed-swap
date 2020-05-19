@@ -23,14 +23,15 @@ class ApplicationController < ActionController::Base
     else
       redirect_to '/'
     end
-      
     #where(zip_code: '#{current_user.zip_code}').load
   end
 end
 
 def neighbor_swaps
   neighbors.map {|user| user.swaps}
+
 end
+
 
 
 
