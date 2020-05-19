@@ -1,8 +1,16 @@
 class SwapsController < ApplicationController
 
     def index
-        @swaps = Swap.all
         @neighbor_swaps = neighbor_swaps
+        if params[:user_id]
+            @swaps = User.find(params[:user_id]).swaps
+        else
+            @swaps = Swap.all
+        end
+    end
+
+    def show
+      @post = Post.find(params[:id])
     end
     
     def new

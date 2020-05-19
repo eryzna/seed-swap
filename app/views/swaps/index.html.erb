@@ -1,11 +1,11 @@
 <h1>Showing Swaps in <%=current_user.location%> </h1>
 <p> <%=link_to "Need to update your zip code?", edit_user_path(current_user) %> </p>
-<br>
 <% if @neighbor_swaps%>
     <% @neighbor_swaps.each do |t|%>
         <% t.each do |p|%>
         <br>
          <li><%=p.title%></li>
+         <h3> <%= link_to p.user.first_name, user_swaps_path(p.user) %></h3>
          <p><%=p.user.first_name%> <%=p.user.last_name.first%>.</p>
          <td><%= link_to "View Swap", swap_path(p.id) %></td>
          <br>

@@ -1,1 +1,8 @@
 <h1> Welcome <%=@user.first_name%>! </h1>
+
+<h3> Here are your swaps: </h3>
+
+<% @user.swaps.each do |t|%>
+<p> <%= t.title%> </p>
+<%= link_to "View Swap", swap_path(t.id) %>
+<%end%>
