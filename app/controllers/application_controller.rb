@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 end
 
 def neighbor_swaps
-  neighbors.map {|user| user.swaps}
+  neighbors.map {|user| user.swaps}.flatten
 
 end
 
