@@ -20,7 +20,12 @@ class UsersController < ApplicationController
     end
 
     def show
+      if !current_user
         @user = User.find(params[:id])
+        render 'show'
+      else
+        @user = User.find(params[:id])
+      end
        # @author = Author.find(params[:id])
     end
 
