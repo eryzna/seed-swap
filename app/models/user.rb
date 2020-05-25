@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :username, length: { in: 6..20}, uniqueness: true
+    validates :password, length: { in: 6..20 }
+    validates :zip_code, length: { is: 5}
     has_secure_password
 
     has_many :swaps

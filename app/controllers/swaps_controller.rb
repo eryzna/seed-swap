@@ -8,7 +8,6 @@ class SwapsController < ApplicationController
            elsif params[:seed_id] 
                 @seed = Seed.find(params[:seed_id])
                 @swaps = @seed.swaps
-                binding.pry
            else
                 @swaps = neighbor_swaps
            end
