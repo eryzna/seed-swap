@@ -1,0 +1,6 @@
+<h1> <%= @seed.name%> </h1>
+<h3> Category: <%= @seed.category%> </h3>
+<p> <%= @seed.description%> </p>
+<br>
+<br>
+<p><%= link_to "New Swap", new_seed_swap_path(@seed) %> </p>

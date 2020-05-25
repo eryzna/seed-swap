@@ -1,3 +1,3 @@
 <h1> <%=@swap.title %> </h1>
 <p>Neighbor: <%= @swap.user.first_name %> <%=@swap.user.last_name.first%>.</p>
-<p>Seed: <%= @swap.seed.name%> <p>
+<p><%= link_to "Seed: #{@swap.seed.name}", seed_path(@swap.seed)%> </p>

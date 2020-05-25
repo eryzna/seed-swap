@@ -9,6 +9,7 @@
     <br>
     <td><%= link_to "View All of #{t.user.first_name}'s Swaps", user_swaps_path(t.user)%> </td>
     <br>
+    <td><%= link_to "View More #{t.seed.name} Swaps", seed_swaps_path(t.seed)%> </td>
     <br>
 <%end%>
 

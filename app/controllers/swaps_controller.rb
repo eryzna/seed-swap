@@ -5,6 +5,10 @@ class SwapsController < ApplicationController
            if params[:user_id]
                 @user = User.find(params[:user_id])
                 @swaps = @user.swaps
+           elsif params[:seed_id] 
+                @seed = Seed.find(params[:seed_id])
+                @swaps = @seed.swaps
+                binding.pry
            else
                 @swaps = neighbor_swaps
            end
@@ -19,7 +23,7 @@ class SwapsController < ApplicationController
 
 
     def new
-        @swap=Swap.new
+        @swap=Swap.new(seed_id: params[:seed_id])
     end
 
     def create

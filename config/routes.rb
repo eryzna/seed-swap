@@ -21,15 +21,18 @@ Rails.application.routes.draw do
   
  # post '/attractions', to: 'attractions#create'
  # post '/rides', to:"rides#create", as: 'rides'
- 
+  resources :seeds, only: [:show] do
+    resources :swaps, only: [:index, :show, :new]
+  end
+  
   resources :users, only: [:show] do
   # nested resource for posts
-    resources :swaps, only: [:index,:show]
+    resources :swaps, only: [:index, :show]
   end
 
-  resources :swaps, only: [:new, :show, :index] do
-    resources :seeds, only: [:new, :show]
-  end
+
+
+  
 
  resources :users
  resources :seeds
