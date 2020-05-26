@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_212532) do
+ActiveRecord::Schema.define(version: 2020_05_25_234454) do
 
   create_table "seeds", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_212532) do
     t.string "username"
     t.string "password_digest"
     t.integer "zip_code"
+    t.string "name"
+    t.string "email"
+    t.string "image"
+    t.string "uid"
   end
 
 end
