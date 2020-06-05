@@ -1,4 +1,9 @@
-<h1> Welcome <%=@user.first_name%>! </h1>
+<% if @user.id%>
+
+    <h1> Welcome <%=@user.first_name%>! </h1>
+<% else %>
+    <h1> Welcome <%=@user.name%>! </h1>
+<%end%>
 
 <h3> Here are your swaps: </h3>
 

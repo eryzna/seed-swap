@@ -6,23 +6,37 @@ class SessionController < ApplicationController
   end
 
   def create
-    #binding.pry
-    if params[:uid]
-      @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        u.name = auth['info']['name']
-        u.email = auth['info']['email']
-        u.image = auth['info']['image']
-        session[:user_id] = @user.id 
-        redirect_to user_path(@user)
-      end 
-      
-    elsif params[:username]
+    if @user
       @user = User.find_by(username: params[:user][:username])
+      binding.pry
       session[:user_id] = @user.id
       redirect_to user_path(@user)
+    elsif auth
+        @user = User.find_or_create_by(:uid => auth['uid']) do |user|
+        user.name = auth['info']['name']
+      end
+    session[:user_id] = @user.try(:id)
     else
       render 'new'
     end
+  end
+  
+  def omniauth_create
+    #@user = User.find_or_create_by(:uid => auth['uid']) do |user|
+     # user.name = auth['info']['name']
+   # end
+   # session[:user_id] = @user.try(:id)
+    @user = User.find_or_create_by(:uid => auth['uid']) do |user|
+      user.name = auth['info']['name']
+    end
+    session[:user_id] = @user.try(:id)
+    #redirect_to '/'
+    #if @user.username
+   #   redirect_to user_path(@user)
+    #else
+    #  render 'static/signup'
+   # end
+   
   end
 
   def destroy

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/signup' => 'users#new'
+  get '/static/signup' => 'users#new'
   root 'static#home'
   #post '/signup', to:'users#create'
   #get '/users/:id', to: 'users#show'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   post '/users/:id', to: 'users#update', as: 'update_user'
  
-  get '/auth/facebook/callback' => 'session#create'
+  match '/auth/:provider/callback', to: 'session#create', via: [:get, :post]
   get '/swaps', to: 'swaps#index', as: 'swaps'
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'
