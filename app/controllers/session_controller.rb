@@ -6,9 +6,24 @@ class SessionController < ApplicationController
     @user = User.new
   end
 
-  def create     
-    auth = request.env["omniauth.auth"]     
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)     
+  def create
+    if @user = User.find_by(username: params[:user][:username])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
+  end
+
+
+  def omniauth_create     
+    user = User.find_or_create_by(:uid => auth['uid']) do |user|
+      user.name = auth['info']['nickname']
+      user.id = auth['info']['uid']
+    end
+   # binding.pry
+    #auth = request.env["omniauth.auth"]     
+    #user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)     
     session[:user_id] = user.id     
     redirect_to root_url, :notice => "Signed in!"
   end
@@ -17,8 +32,7 @@ class SessionController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end
- 
-end
+
 
   
 
