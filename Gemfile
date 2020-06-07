@@ -26,6 +26,7 @@ gem 'zip-codes'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'omniauth-github'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
