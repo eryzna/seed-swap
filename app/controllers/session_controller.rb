@@ -7,10 +7,13 @@ class SessionController < ApplicationController
   end
 
   def create
+    if auth_hash = request.env["omniauth.auth"]
+      puts "Yes"
+    
     #binding.pry
     @user = User.find_by(username: params[:user][:username])
     #binding.pry
-    if @user.authenticate(params[:user][:password])
+    elsif @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -78,8 +81,9 @@ class SessionController < ApplicationController
   def auth
     request.env['omniauth.auth']
   end
+end
 
 
    
-end
+
 
