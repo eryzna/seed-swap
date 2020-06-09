@@ -18,4 +18,14 @@ class User < ActiveRecord::Base
     #  First run will take a while, as the yaml has to be loaded
     end
 
+    def self.find_or_create_by_omniauth(auth_hash)
+        oauth_email = auth_hash["info"]["email"]
+        if @user = User.find_by(:email => oauth_email)
+            return @user
+        else
+            @user = User.create(:email => oauth.email, :password => SecureRandom.hex)
+        
+        end
+    end
+
 end
