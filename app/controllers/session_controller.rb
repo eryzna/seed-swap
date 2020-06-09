@@ -8,12 +8,23 @@ class SessionController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      puts "Yes"
-    
-    #binding.pry
-    @user = User.find_by(username: params[:user][:username])
-    #binding.pry
-    elsif @user.authenticate(params[:user][:password])
+      oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      if user = User.find_by(:email => oauth_email)
+        #raise "EXISTING USER LOGGING IN VIA GITHUB".inspect
+        session[:user_id] = user.id
+        redirect_to root_path
+      else
+        user = User.new(:email => oauth_email)
+        #raise "new user logging in".inspect
+        if user.save
+          session[:user_id] = user.id
+          redirect_to root_path
+        else
+          raise user.errors.full_messages.inspect
+        end
+      end
+    elsif  @user = User.find_by(username: params[:user][:username])
+      @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
