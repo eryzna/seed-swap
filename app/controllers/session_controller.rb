@@ -24,11 +24,13 @@ class SessionController < ApplicationController
         end
       end
     elsif  @user = User.find_by(username: params[:user][:username])
-      @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-      redirect_to signin_path
+      #raise "normal user".inspect
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        redirect_to signin_path
+      end
     end
   end
   #def create
