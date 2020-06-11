@@ -42,3 +42,10 @@ Method that amends user's seed quantity after each swap; swaps have a seed name?
 <% else%>
     <h1> No Swaps to Show! </h1>
 <%end%>
+
+
+6/11:
+
+-User update does not work when validations present, i.e., update user object isn't saved
+-Need to ensure certain pages are only viewable when the user is logged in
+-Need to restrict seed/swaps to zip code

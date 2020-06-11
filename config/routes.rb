@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   #get '/users/:id', to: 'users#show'
   #get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   
-  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
-  post '/users/:id', to: 'users#update', as: 'update_user'
+  #get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+  #post '/users/:id', to: 'users#update', as: 'update_user'
  
   match '/auth/:provider/callback', to: 'session#create', via: [:get, :post]
   #match '/app/:provider/callback', to: 'session#create', via: [:get, :post]

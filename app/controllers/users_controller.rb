@@ -42,11 +42,17 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find_by(id: params[:id])
+     # binding.pry
     end
 
     def update
       @user = User.find_by(id: params[:id])
+      #binding.pry
       @user.update(user_params)
+      #@user.save
+      #binding.pry
+      #binding.pry
+      #binding.pry
       redirect_to '/swaps'
     end
     
