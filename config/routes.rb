@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'
   delete '/session/', to: 'session#destroy'
+  get '/users/omniauth/new', to: 'users#omniauth_new', as: 'omniauth_new'
+  post '/users/:id', to: 'users#omniauth_create'
   
   get '/swaps/new', to: 'swaps#new', as: 'new_swap'
   #get '/seeds/new', to: 'attractions#new', as: 'new_attraction'

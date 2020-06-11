@@ -13,10 +13,10 @@
   </div>
 <% end %>
 
-<h1> New User Signup </h1>
-
+  <h1> Welcome to Seed Swap, <%= session[:email]%>! </h1>
+  <h2> Please complete your profile: </h2>
   <%= form_for @user do |f|%>
-
+    
     <%=f.label :first_name%>
     <%=f.text_field :first_name%>
     <br>
@@ -33,16 +33,8 @@
     <%=f.text_field :username%>
     <br>
     <br>
-    <%=f.label :email%>
-    <%=f.text_field :email%>
-    <br>
-    <br>
-    <%=f.label :password%>
-    <%=f.password_field :password%>
-    <br>
-    <br>
-    <%=f.submit "Submit"%>
-  <%end%>
-
-
+    <%= f.hidden_field :email%>
+    <%= f.hidden_field :password%>
+    <%= f.submit "Submit"%>
+<%end%>
 
