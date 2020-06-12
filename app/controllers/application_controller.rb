@@ -33,6 +33,13 @@ def neighbor_swaps
 
 end
 
+def require_login
+  unless session.include? :user_id
+    flash[:alert] = "You must be logged in to access that section."
+    redirect_to '/'
+    #return head(:forbidden) 
+  end
+end
 
 
 

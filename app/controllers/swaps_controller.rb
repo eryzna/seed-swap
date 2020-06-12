@@ -1,5 +1,6 @@
 class SwapsController < ApplicationController
-
+    before_action :require_login
+    
     def index
        if neighbor_swaps
            if params[:user_id]
