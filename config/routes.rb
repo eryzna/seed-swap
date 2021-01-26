@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show] do
-  # nested resource for posts
+  # nested resource for swaps
     resources :swaps, only: [:index, :show]
   end
 

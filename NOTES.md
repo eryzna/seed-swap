@@ -27,6 +27,10 @@ Collection_select for seeds, or else create one new seed
 Edit user with new zip code
 Method that amends user's seed quantity after each swap; swaps have a seed name?
 
+User signup validations
+User name exists!
+Email exists!
+
 
 <% if @neighbor_swaps%>
     <% @neighbor_swaps.each do |t|%>

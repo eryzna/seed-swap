@@ -24,7 +24,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'zip-codes'
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'omniauth-github'
 
