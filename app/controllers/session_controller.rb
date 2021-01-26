@@ -19,8 +19,9 @@ class SessionController < ApplicationController
           user.password = SecureRandom.hex
           session[:email] = user.email
           session[:password] = user.password
+          redirect_to omniauth_new_path
         end
-        redirect_to omniauth_new_path
+        
         #raise "new user logging in".inspect
       end
         #raise "new user logging in".inspect

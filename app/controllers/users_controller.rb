@@ -57,6 +57,21 @@ class UsersController < ApplicationController
       #binding.pry
       redirect_to '/swaps'
     end
+
+    def omniauth_edit
+      @user = User.find_by(id: params[:id])
+    end
+
+    def omniauth_update
+      @user = User.find_by(id: params[:id])
+      #binding.pry
+      @user.update(user_params)
+      #@user.save
+      #binding.pry
+      #binding.pry
+      #binding.pry
+      redirect_to '/swaps'
+    end
     
     private
     

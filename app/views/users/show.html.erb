@@ -5,9 +5,12 @@
     <h1> Welcome <%=@user.name%>! </h1>
 <%end%>
 
-<h3> Here are your swaps: </h3>
-
-<% @user.swaps.each do |t|%>
-<p> <%= t.title%> </p>
-<%= link_to "View Swap", swap_path(t.id) %>
+<% if @user.swaps%>
+   <h3> Here are your swaps: </h3>
+    <% @user.swaps.each do |t|%>
+        <p> <%= t.title%> </p>
+        <%= link_to "View Swap", swap_path(t.id) %>
+    <%end%>
+<%else%>
+    <h3> No swaps to show! </h3>
 <%end%>
