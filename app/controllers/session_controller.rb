@@ -15,10 +15,11 @@ class SessionController < ApplicationController
        # binding.pry
         redirect_to user_path(user)
       else
-        @new_user= User.where(:email => oauth_email).create do |user|
+        @user= User.where(:email => oauth_email).create do |user|
           user.password = SecureRandom.hex
           session[:email] = user.email
           session[:password] = user.password
+          session[:user_id] = user.id
           redirect_to omniauth_new_path
         end
         
