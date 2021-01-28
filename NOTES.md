@@ -24,9 +24,13 @@ Vegetable, fruit, herbs, flowers
 Method that filters swaps by zip code
 Function that filters swaps by seed category
 Collection_select for seeds, or else create one new seed
-Edit user with new zip code
 Method that amends user's seed quantity after each swap; swaps have a seed name?
-Restricting access to other profiles
+User update does not work when validations present, i.e., update user object isn't saved
+Need to restrict seed/swaps to zip code
+Restrict omniauth_new
+*Need to ensure certain pages are only viewable when the user is logged in*
+*Edit user with new zip code*
+*Restricting access to other profiles*
 
 User signup validations
 User name exists!
@@ -49,8 +53,3 @@ Email exists!
 <%end%>
 
 
-6/11:
-
--User update does not work when validations present, i.e., update user object isn't saved
--Need to ensure certain pages are only viewable when the user is logged in
--Need to restrict seed/swaps to zip code

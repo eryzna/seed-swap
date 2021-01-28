@@ -41,6 +41,16 @@ def require_login
   end
 end
 
+def require_omniauth_login
+  if session.include?(:email)
+    redirect_to omniauth_new_path
+  else
+    flash[:alert] = "You must be loggec in to access that section."
+    redirect_to '/'
+  end
+end
+  
+
 
 
 
