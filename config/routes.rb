@@ -18,9 +18,7 @@ Rails.application.routes.draw do
   delete '/session/', to: 'session#destroy'
   get '/users/omniauth/new', to: 'users#omniauth_new', as: 'omniauth_new'
   post '/users/:id', to: 'users#omniauth_create'
-  get '/user/omniauth/update', to: 'users#omniauth_edit'
-  post '/users/:id', to: 'users#omniauth_update'
-  
+
   get '/swaps/new', to: 'swaps#new', as: 'new_swap'
   #get '/seeds/new', to: 'attractions#new', as: 'new_attraction'
   get '/swaps/:id', to: 'swaps#show', as: 'swap'
