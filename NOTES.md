@@ -26,6 +26,7 @@ Function that filters swaps by seed category
 Collection_select for seeds, or else create one new seed
 Edit user with new zip code
 Method that amends user's seed quantity after each swap; swaps have a seed name?
+Restricting access to other profiles
 
 User signup validations
 User name exists!

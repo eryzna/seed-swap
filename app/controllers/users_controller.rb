@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #skip_before_action :verified_user, only: [:new, :create]
   before_action :require_login
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :omniauth_new]
 
     def index
         @users=User.all

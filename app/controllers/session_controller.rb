@@ -15,14 +15,11 @@ class SessionController < ApplicationController
        # binding.pry
         redirect_to user_path(user)
       else
-        @user= User.where(:email => oauth_email).create do |user|
-          user.password = SecureRandom.hex
-          session[:email] = user.email
-          session[:password] = user.password
-          session[:user_id] = user.id
-          redirect_to omniauth_new_path
-        end
-        
+        @user = User.where(:email => oauth_email).new
+        @user.password = SecureRandom.hex
+        session[:email] = @user.email
+        session[:password] = @user.password
+        redirect_to omniauth_new_path
         #raise "new user logging in".inspect
       end
         #raise "new user logging in".inspect
@@ -55,8 +52,3 @@ class SessionController < ApplicationController
     request.env['omniauth.auth']
   end
 end
-
-
-   
-
-
