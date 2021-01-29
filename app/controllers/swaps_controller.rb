@@ -7,23 +7,16 @@ class SwapsController < ApplicationController
                 @user = User.find(params[:user_id])
                 @swaps = @user.swaps
            elsif params[:seed_id] 
-                @seed = Seed.find(params[:seed_id])
-                @swap = @seed.
-                @seed_swaps = @swap.collect(:users)
-
-                #def neighbor_seed_swaps
-                    #unless session[:city_id].nil? || session[:city_id].blank?
-                    #@city = City.find(session[:city_id])
-                    #@deal=@city.deals
-                    #@store=@deal.stores
-                 #end
-                
-                 #@deals = @city.deals
-                #@stores = @deals.collect(&:stores)
-
-                #@swaps = neighbor_swaps.select {|swap| swap.seed_id == params[:seed_id]}.flatten
-                #@swaps = neighbor_swaps.select {|swap| swap.seed_id == params[:seed_id]}.flatten
-
+                #@seed = Seed.find(params[:seed_id])
+                @pre_swaps = []
+                if neighbor_seed_swaps != []
+                    neighbor_seed_swaps.each do |t|
+                        @pre_swaps << Swap.where(:id => t)
+                    end
+                @swaps = @pre_swaps.flatten
+                else
+                    flash[:alert] = "No more swaps to show!"
+                end 
            else
                 @swaps = neighbor_swaps
            end

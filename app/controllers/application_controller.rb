@@ -18,7 +18,29 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def neighbors
+=begin IRB
+  def neighbors(user_id, seed_id)
+    @current_user= User.find_by(:id => user_id)
+    @neighbors = User.where(:zip_code => @current_user.zip_code)
+    @neighbor_swaps = @neighbors.map {|neighbor| neighbor.swaps}.flatten
+    @seed = Seed.find_by(:id => seed_id)
+    @seed_swaps = @seed.swaps
+    @seed_swap_ids = @seed_swaps.map {|swap| swap.id}
+    @neighbor_swap_ids = @neighbor_swaps.map {|swap| swap.id}
+    @shared_swaps = @seed_swap_ids & @neighbor_swap_ids 
+    @final_swaps = []
+    if @shared_swaps != []
+      @shared_swaps.each do |t|
+        @final_swaps << Swap.where(:id => t)
+      end
+      @final_swaps.flatten
+    else
+      puts "no swaps to show"
+    end
+  end
+=end
+
+def neighbors
     if current_user
        User.where(zip_code: "#{current_user.zip_code}")
     else
@@ -37,23 +59,19 @@ def neighbor_swaps
   neighbors.map {|neighbor| neighbor.swaps}.flatten
 end
 
-def neighbor_swaps(seed_id, zip_code)
-  @seed = Seed.find_by_id(seed_id)
-  @neighbor = User.where(:zip_code => zip_code)
-  @neighbor_swaps = @neighbor.map {|neighbor| neighbor.swaps}.flatten
+def neighbor_seed_swaps
+  @seed = Seed.find(params[:seed_id])
   @seed_swaps = @seed.swaps
   @seed_swap_ids = @seed_swaps.map {|swap| swap.id}
-  @neighbor_swap_ids = @neighbor_swaps.map {|swap| swap.id}
-  @neighbor_seed_swap = @seed_swap_ids & @neighbor_swap_ids 
-  @final = []
-  @neighbor_seed_swap.each do |t|
-    @final << Swap.where(:id => t)
-  end
-  if final != []
-    return @final
-  else
-    return "No swaps to show!"
-  end
+  @neighbor_swap_ids = neighbor_swaps.map {|swap| swap.id}
+  @seed_swap_ids & @neighbor_swap_ids 
+  #@neighbor = User.where(:zip_code => zip_code)
+  #@neighbor_swaps = @neighbor.map {|neighbor| neighbor.swaps}.flatten
+  
+  #@final = []
+  #@neighbor_seed_swap.each do |t|
+    #@final << Swap.where(:id => t)
+  #end
 end
 
 def require_login
