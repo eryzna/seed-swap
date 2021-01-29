@@ -8,7 +8,22 @@ class SwapsController < ApplicationController
                 @swaps = @user.swaps
            elsif params[:seed_id] 
                 @seed = Seed.find(params[:seed_id])
-                @swaps = @seed.swaps
+                @swap = @seed.
+                @seed_swaps = @swap.collect(:users)
+
+                #def neighbor_seed_swaps
+                    #unless session[:city_id].nil? || session[:city_id].blank?
+                    #@city = City.find(session[:city_id])
+                    #@deal=@city.deals
+                    #@store=@deal.stores
+                 #end
+                
+                 #@deals = @city.deals
+                #@stores = @deals.collect(&:stores)
+
+                #@swaps = neighbor_swaps.select {|swap| swap.seed_id == params[:seed_id]}.flatten
+                #@swaps = neighbor_swaps.select {|swap| swap.seed_id == params[:seed_id]}.flatten
+
            else
                 @swaps = neighbor_swaps
            end
