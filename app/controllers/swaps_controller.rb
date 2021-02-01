@@ -44,6 +44,17 @@ class SwapsController < ApplicationController
         end
     end
 
+    def edit
+        @swap = Swap.find_by(id: params[:id])
+       
+    end
+  
+    def update
+        @swap = Swap.find_by(id: params[:id])
+        @swap.update(swap_params)
+        redirect_to user_path(current_user)
+    end
+
    
     private
 

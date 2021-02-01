@@ -35,11 +35,7 @@ Rails.application.routes.draw do
     resources :swaps, only: [:index, :show]
   end
 
-
-
-  
-
  resources :users
- resources :seeds
+ resources :seeds, only: [:show]
  resources :swaps
 end

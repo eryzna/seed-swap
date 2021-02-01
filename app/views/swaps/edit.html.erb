@@ -1,19 +1,5 @@
-<% if @seed.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@seed.errors.count, "error") %>
-      prohibited this seed from being saved:
-    </h2>
- 
-    <ul>
-    <% @swap.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @seed do |f|%>
+<h1> Update Swap: "<%="#{@swap.title}" %>"</h1>
+<%= form_for @swap do |f|%>
     
 <%=f.label :title%>
 <%=f.text_field :title%>
@@ -28,6 +14,8 @@
 <%# f.collection_select :seed_id, Seed.fruits, :id, :name %>
 <%= f.hidden_field :user_id%>
 
-<%=f.submit "Submit"%>
+<%=f.submit "Update"%>
 
 <%end%>
+
+
