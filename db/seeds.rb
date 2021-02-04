@@ -7,25 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user_list = [
-    ["Andy", "Fierro", "afierro", 90057, "password"],
-    ["Emily", "Ryznar", "emryz", 90403, "password"],
-    ["Eve", "Ryznar", "eryzna", 48167, "password"],
-    ["James", "Evans", "jevans", 90403, "password"],
-    ["Gustav", "Mousehunter", "gurustav", 60703, "password"],
-    ["Brian", "Lim", "blim", 90004, "password"],
-    ["Princess", "Dog", "princess", 90057, "password"],
-    ["Fred", "Fierro", "afierro", 90057, "password"],
-    ["Madeline", "Zacha", "emryz", 90403, "password"],
-    ["Paul", "Ryznar", "eryzna", 48167, "password"],
-    ["Joanne", "Reilly", "jevans", 90403, "password"],
-    ["Lily", "Mousehunter", "gurustav", 60703, "password"],
-    ["Sharon", "Tran", "blim", 90004, "password"],
-    ["Toffee", "Cat", "princess", 90057, "password"]
+    ["Emily", "Ryznar", "emryz", 90403, "password", "emily@world.com"],
+    ["Eve", "Ryznar", "eryzna", 48167, "password", "eve@world.com"],
+    ["James", "Evans", "jevans", 90403, "password", "james@world.com"],
+    ["Gustav", "Mousehunter", "gurustav", 60703, "password", "gustav@world.com"],
+    ["Brian", "Lim", "blim", 90004, "password", "brian@world.com"],
+    ["Princess", "Dog", "princess", 90057, "password", "princess@world.com"],
+    ["Madeline", "Zacha", "emryz", 90403, "password", "madeline@world.com"],
+    ["Paul", "Ryznar", "eryzna", 48167, "password", "paul@world.com"],
+    ["Lily", "Mousehunter", "gurustav", 60703, "password", "lily@world.com"],
+    ["Sharon", "Tran", "blim", 90004, "password", "sharon@world.com"],
+    ["Toffee", "Cat", "princess", 90057, "password", "toffee@world.com"],
+    ["Elana", "Ryznar", "ryznar16", 90004, "password", "elana@world.com", admin: true]
+    
 
 ]
 
-user_list.each do |first_name, last_name, username, zip_code, password|
-    User.create(first_name: first_name, last_name: last_name, username: username, zip_code: zip_code, password: password)
+user_list.each do |first_name, last_name, username, zip_code, password, email, admin|
+    User.create(first_name: first_name, last_name: last_name, username: username, zip_code: zip_code, password: password, email: email, admin: admin)
 end
 
 seed_list = [

@@ -22,10 +22,17 @@ Rails.application.routes.draw do
   get '/swaps/new', to: 'swaps#new', as: 'new_swap'
   #get '/seeds/new', to: 'attractions#new', as: 'new_attraction'
   get '/swaps/:id', to: 'swaps#show', as: 'swap'
+  #get '/seeds/new', to: 'seeds#new', as: 'new_seed'
  # get '/attractions/:id/edit', to: 'attractions#edit', as: 'edit_attraction'
   
  # post '/attractions', to: 'attractions#create'
  # post '/rides', to:"rides#create", as: 'rides'
+  
+ resources :users
+ resources :seeds
+ resources :swaps
+ 
+ 
   resources :seeds, only: [:show] do
     resources :swaps, only: [:index, :show, :new]
   end
@@ -35,7 +42,5 @@ Rails.application.routes.draw do
     resources :swaps, only: [:index, :show]
   end
 
- resources :users
- resources :seeds, only: [:show]
- resources :swaps
+ 
 end

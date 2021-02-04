@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_194113) do
+ActiveRecord::Schema.define(version: 2021_02_02_155321) do
 
   create_table "seeds", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_194113) do
     t.string "password_digest"
     t.integer "zip_code"
     t.string "email"
+    t.boolean "admin", default: false
   end
 
 end

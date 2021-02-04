@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
+
+
   def neighbor_swaps
     @neighbors = User.neighbors("#{current_user.zip_code}")
     @neighbors.map {|neighbor| neighbor.swaps}.flatten
