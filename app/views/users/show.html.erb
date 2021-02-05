@@ -2,7 +2,7 @@
 <h1> Welcome <%=@user.first_name%>! </h1>
 
 <% unless !@user.admin%>
-    <h3> You are a SeedSwap administrator </h3>
+    <h3> You are a Seed Swap administrator </h3>
     <%= link_to "New Seed", new_seed_path%>
     <br>
     <%= link_to "Seed Index", seeds_path%>
