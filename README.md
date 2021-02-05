@@ -1,24 +1,11 @@
-# README
+Welcome to Seed Swap! 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Seed Swap is an app designed to allow the exchange of seeds with your neighbors. Create your own swap, or explore the seeds available in your area!
 
-Things you may want to cover:
 
-* Ruby version
+To use this app, simply clone, run rake db:migrate and then start your server.
 
-* System dependencies
+License
 
-* Configuration
+This app is licensed under the MIT license.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
