@@ -1,4 +1,7 @@
 class Seed < ActiveRecord::Base
+    validates :name, :category, :description, presence: true
+    validates :name, uniqueness: true
+
     has_many :swaps
     has_many :users, :through => :swaps
 

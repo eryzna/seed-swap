@@ -55,12 +55,7 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find_by(id: params[:id])
-      #binding.pry
-      @user.update(user_params)
-      #@user.save
-      #binding.pry
-      #binding.pry
-      #binding.pry
+      @user.update_attribute(:zip_code, user_params[:zip_code])
       redirect_to '/swaps'
     end
 

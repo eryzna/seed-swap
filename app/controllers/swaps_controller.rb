@@ -46,7 +46,6 @@ class SwapsController < ApplicationController
 
     def edit
         @swap = Swap.find_by(id: params[:id])
-       
     end
   
     def update
@@ -55,6 +54,10 @@ class SwapsController < ApplicationController
         redirect_to user_path(current_user)
     end
 
+    def destroy
+        Swap.find(params[:id]).destroy
+        redirect_to user_path(current_user)
+    end
    
     private
 

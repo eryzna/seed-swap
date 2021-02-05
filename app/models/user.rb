@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
     scope :neighbors, ->(zip_code) { where("zip_code == ?", zip_code) }
-
     scope :admin, ->{ where(admin: true)} 
-    #validates :first_name, :last_name, :zip_code, :username, :email, presence: true
+
+    validates :first_name, :last_name, :zip_code, :username, :email, presence: true
+    validates :username, :email, uniqueness: true
+    validates :zip_code, length: { is: 5 }
     has_secure_password
+
     has_many :swaps
     has_many :seeds, :through => :swaps
 

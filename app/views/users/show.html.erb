@@ -1,15 +1,28 @@
 
 <h1> Welcome <%=@user.first_name%>! </h1>
 
+<% unless !@user.admin%>
+    <h3> You are a SeedSwap administrator </h3>
+    <%= link_to "New Seed", new_seed_path%>
+    <br>
+    <%= link_to "Seed Index", seeds_path%>
+<%end%>
+
+
 <% if @user.swaps != []%>
    <h3> Here are your swaps: </h3>
     <% @user.swaps.each do |t|%>
         <p> <%= t.title%> </p>
         <%= link_to "View Swap", swap_path(t.id) %>
+        <br>
         <%= link_to "Edit Swap", edit_swap_path(t.id)%>
+        <br>
+        <%= button_to "Delete Swap", swap_path(t.id), method: :delete %>
     <%end%>
 <%else%>
     <h3> No swaps to show! </h3>
 <%end%>
 
-<%= @neighbors%>
+<br>
+<br>
+

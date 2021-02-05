@@ -10,9 +10,7 @@ class SessionController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       oauth_email = request.env["omniauth.auth"]["info"]["email"]
       if user = User.find_by(:email => oauth_email)
-        raise "EXISTING USER LOGGING IN VIA GITHUB".inspect
         session[:user_id] = user.id
-       # binding.pry
         redirect_to user_path(user)
       else
         @user = User.where(:email => oauth_email).new
@@ -22,19 +20,11 @@ class SessionController < ApplicationController
         render "users/omniauth_new"
         #raise "new user logging in".inspect
       end
-        #raise "new user logging in".inspect
-        #if @new_user.save
-          
-          #redirect_to root_path
-        #else
-         # raise @new_user.errors.full_messages.inspect
-        #end
-      #end
     elsif  @user = User.find_by(username: params[:user][:username])
       #raise "normal user".inspect
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to swaps_path
       else
         redirect_to signin_path
       end

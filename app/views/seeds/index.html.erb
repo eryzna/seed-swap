@@ -1,0 +1,8 @@
+<% @seeds.each do |t|%>
+    <li><%= t.name%></li>
+    <%= link_to "View Seed", seed_path(t.id)%>
+    <br>
+    <%= link_to "Edit Seed", edit_seed_path(t.id)%>
+    <br>
+    <%= button_to "Delete Seed", seed_path(t.id), method: :delete %>
+<%end%>
