@@ -36,6 +36,11 @@ Vegetable, fruit, herbs, flowers
 ***Method that amends user's seed quantity after each swap; swaps have a seed name?***
 ***Destroy methods***
 
+**CHECK**
+Remove User index route
+Verified_user and User_is_authenticated
+Set !! for truthiness
+
 User signup validations
 User name exists!
 Email exists!
