@@ -7,13 +7,12 @@ class SwapsController < ApplicationController
                 @user = User.find(params[:user_id])
                 @swaps = @user.swaps
            elsif params[:seed_id] 
-                #@seed = Seed.find(params[:seed_id])
-                @pre_swaps = []
+                @neighbor_seed_swaps = []
                 if neighbor_seed_swaps != []
                     neighbor_seed_swaps.each do |t|
-                        @pre_swaps << Swap.where(:id => t)
+                        @neighbor_seed_swaps << Swap.where(:id => t)
                     end
-                @swaps = @pre_swaps.flatten
+                @swaps = @neighbor_seed_swaps.flatten
                 else
                     flash[:alert] = "No more swaps to show!"
                 end 

@@ -14,11 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-   # @current_user ||= User.find(session[:user_id]) if session[:user_id]
     User.find_by(id: session[:user_id])
   end
-
-
 
   def neighbor_swaps
     @neighbors = User.neighbors("#{current_user.zip_code}")
@@ -37,7 +34,6 @@ class ApplicationController < ActionController::Base
     unless session.include? :user_id
       flash[:alert] = "You must be logged in to access that section."
       redirect_to '/'
-      #return head(:forbidden) 
     end
   end
 

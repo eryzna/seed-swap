@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:new, :create, :omniauth_new]
+    before_action :require_login
+    skip_before_action :require_login, only: [:new, :create, :omniauth_new]
 
     def index
         @users=User.all
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          redirect_to user_path(@user)
+          redirect_to swaps_path
         else
           render 'new'
         end
@@ -22,15 +22,13 @@ class UsersController < ApplicationController
 
     def omniauth_new
       @user = User.where(:email => session[:email], :password => session[:password]).new
-      #binding.pry
-      
     end
 
     def omniauth_create
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to swaps_path
       else
         render 'new'
       end

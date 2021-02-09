@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   #skip_before_action :verified_user, only: [:new, :create]
-  #skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: :create
   
   def new
     @user = User.new
@@ -18,10 +18,8 @@ class SessionController < ApplicationController
         session[:email] = @user.email
         session[:password] = @user.password
         render "users/omniauth_new"
-        #raise "new user logging in".inspect
       end
     elsif  @user = User.find_by(username: params[:user][:username])
-      #raise "normal user".inspect
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to swaps_path
