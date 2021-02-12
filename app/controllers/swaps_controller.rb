@@ -15,10 +15,12 @@ class SwapsController < ApplicationController
                 @swaps = @neighbor_seed_swaps.flatten
                 else
                     flash[:alert] = "No more swaps to show!"
-                end 
-           else
+                end
+            elsif params[:query]
+                @swaps = Swap.results(params[:query])
+            else
                 @swaps = neighbor_swaps
-           end
+            end
         else
             puts "No Swaps to Show!"
         end

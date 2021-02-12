@@ -1,4 +1,11 @@
 <h1>Showing Swaps in <%=current_user.location%> </h1>
+
+<%=form_tag swaps_path, method: :get do %>
+    <label>Search for Swaps by Title:</label><br>
+    <%= text_field_tag 'query'%>
+    <%= submit_tag "Submit" %>
+<%end%>
+
 <p> <%=link_to "Need to update your zip code?", edit_user_path(current_user) %> </p>
 <br>
 <% @swaps.each do |t|%>
@@ -13,4 +20,8 @@
     <br>
     <br>
 <%end%>
+
+
+
+
 
